@@ -86,9 +86,7 @@ class Hello:
 
 
         plt.savefig('static/media/results.png',transparent=True) 
-        time.sleep(1)
-        with open ('static/media/results.png', 'rb') as results:
-            return (base64.b64encode(results.read()))
+
 
 
     @staticmethod
@@ -108,7 +106,9 @@ def processjson():
             return jsonify({'post': 'success!'})
     else:
         processedData = Hello.time_for_letter(Hello.typedData)
-        x = Hello.plotBarGraph(processedData)
+        Hello.plotBarGraph(processedData)
+        with open ('static/media/results.png', 'rb') as results:
+            x = base64.b64encode(results.read())
         return x
 
 @app.route('/API/sample', methods=['GET'])
