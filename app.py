@@ -107,7 +107,7 @@ def processjson():
             Hello.plotBarGraph(processedData)
             return jsonify({'post': 'success!'})
     else:
-        time.sleep(0.5)
+        time.sleep(1)
         with open ('static/media/results.png', 'rb') as results:
             x = base64.b64encode(results.read())
         return x
