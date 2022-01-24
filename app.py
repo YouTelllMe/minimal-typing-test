@@ -86,7 +86,7 @@ class Hello:
 
 
         plt.savefig('static/media/results.png',transparent=True) 
-
+        time.sleep(1)
         with open ('static/media/results.png', 'rb') as results:
             return (base64.b64encode(results.read()))
 
