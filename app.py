@@ -103,10 +103,11 @@ class Hello:
 def processjson():
     if request.method == 'POST':
             Hello.typedData = request.get_json()
+            processedData = Hello.time_for_letter(Hello.typedData)
+            Hello.plotBarGraph(processedData)
             return jsonify({'post': 'success!'})
     else:
-        processedData = Hello.time_for_letter(Hello.typedData)
-        Hello.plotBarGraph(processedData)
+        time.sleep(0.5)
         with open ('static/media/results.png', 'rb') as results:
             x = base64.b64encode(results.read())
         return x
