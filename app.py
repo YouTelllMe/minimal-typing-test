@@ -5,6 +5,7 @@ from flask import Flask, request, jsonify, render_template, redirect
 from flask_cors import CORS, cross_origin
 import random
 import base64
+import time
 
 app = Flask(__name__)
 
@@ -85,6 +86,9 @@ class Hello:
 
 
         plt.savefig('static/media/results.png',transparent=True) 
+
+        time.sleep(1)
+
         with open ('static/media/results.png', 'rb') as results:
             return (base64.b64encode(results.read()))
 
